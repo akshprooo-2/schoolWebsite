@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: inria;
+    src: url(/fonts/Inria_Sans/InriaSans-Regular.ttf);
+}
+
+@theme{
+    --color-back: #F7F9FE;
+    --color-primary: #122C5F;
+    --color-secondary: #111;
+    --color-extra: #FEE26B;
+    --color-text: #021741;
+    --font-inria: inria;
+}
