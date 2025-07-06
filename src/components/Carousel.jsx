@@ -59,7 +59,7 @@ const Carousel = () => {
     loadImages();
   }, []);
 
-  // Fallback images based on your project structure
+  // Fallback images
   const fallbackImages = [
     { id: '1', src: '/images/carousel/1.jpg', alt: 'Carousel Image 1' },
     { id: '2', src: '/images/carousel/2.jpg', alt: 'Carousel Image 2' },
@@ -77,6 +77,14 @@ const Carousel = () => {
   const prevImage = () => {
     setCdex((prev) => (prev - 1 + imageListToUse.length) % imageListToUse.length);
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      nextImage()
+    }, 2000)
+
+    return () => clearInterval(intervalId);
+  }, [cdex, imageListToUse.length]);
 
   if (loading && images.length === 0) {
     return (
@@ -130,18 +138,13 @@ const Carousel = () => {
           <button
             key={index}
             onClick={() => setCdex(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-200 ${
+            className={` w-3 h-3 rounded-full transition-all duration-200 ${
               index === cdex 
-                ? 'bg-white' 
+                ? 'bg-primary' 
                 : 'bg-white bg-opacity-50 hover:bg-opacity-70'
             }`}
           />
         ))}
-      </div>
-      
-      {/* Image Counter */}
-      <div className='absolute top-4 right-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm'>
-        {cdex + 1} / {imageListToUse.length}
       </div>
     </div>
   );
