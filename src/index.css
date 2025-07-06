@@ -5,6 +5,11 @@
     src: url(/fonts/Inria_Sans/InriaSans-Regular.ttf);
 }
 
+@font-face {
+    font-family: inknut;
+    src: url(/fonts/Inknut_Antiqua/InknutAntiqua-Regular.ttf);
+}
+
 @theme{
     --color-back: #F7F9FE;
     --color-primary: #122C5F;
@@ -12,4 +17,9 @@
     --color-extra: #FEE26B;
     --color-text: #021741;
     --font-inria: inria;
+    --font-inknut: inknut;
+}
+
+html,body{
+    @apply bg-zinc-900;
 }

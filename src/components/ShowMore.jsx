@@ -1,17 +1,20 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
-const ShowMore = ({arr}) => {
-  
+const ShowMore = ({ arr }) => {
     return (
-    <div className='h-70 w-50 rounded-lg bg-red-500 absolute top-22 right-0 flex flex-col items-center justify-between py-5'>
-        {
-            arr.map((item, idx)=>(
-                <h2 key={idx} className='text-white font-bold' >{item.Name}</h2>
-            ))
-        }
-    </div>
-  )
+        <div className='absolute top-full right-0 mt-2 w-56 bg-back rounded-lg shadow-xl border border-primary/10 py-3 z-50 animate-in fade-in-0 zoom-in-95 duration-200'>
+            {arr.map((item, idx) => (
+                <Link 
+                    key={idx}
+                    to={item.link}
+                    className='block px-4 py-2 text-base font-inria text-text hover:text-primary hover:bg-primary/5 transition-colors duration-200 first:rounded-t-lg last:rounded-b-lg'
+                >
+                    {item.Name}
+                </Link>
+            ))}
+        </div>
+    )
 }
 
 export default ShowMore
